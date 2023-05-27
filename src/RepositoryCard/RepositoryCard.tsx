@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useLazyQuery } from "@apollo/client"
 import { SEARCH_REPOSITORY } from "../api/api"
 
@@ -9,6 +9,7 @@ interface RepositoryData {
     name: string
     stargazerCount: number
     updatedAt: string
+    url: string
     owner: {
       __typename: string
       login: string
@@ -24,10 +25,13 @@ interface RepositoryData {
     description: string
   }
 }
+interface RouteParams {
+  [key: string]: string | undefined
+}
 
 const RepositoryCard = () => {
   const [searchRepositories] = useLazyQuery(SEARCH_REPOSITORY)
-  const params = useParams()
+  const params = useParams<RouteParams>()
   const { name, login } = params
   const [data, setData] = useState<RepositoryData | null>(null)
 
@@ -41,6 +45,7 @@ const RepositoryCard = () => {
   useEffect(() => {
     handleRequest()
   }, [])
+  console.log(data)
 
   return (
     <section>
@@ -57,6 +62,7 @@ const RepositoryCard = () => {
             {data.repository.languages.nodes.map((node) => node.name).join(", ")}
           </p>
           <p>Stargazer Count: {data.repository.stargazerCount}</p>
+          <a href={data.repository.url}>URL</a>
         </>
       )}
     </section>

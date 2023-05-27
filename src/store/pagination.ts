@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 export interface PaginationState {
   activePage: number
   pageInfo: PageInfo | null
+  searchText: string
 }
 
 export interface PageInfo {
@@ -13,7 +14,11 @@ export interface PageInfo {
   __typename: string
 }
 
-export const initialPaginationState: PaginationState = { activePage: 1, pageInfo: null }
+export const initialPaginationState: PaginationState = {
+  activePage: 1,
+  pageInfo: null,
+  searchText: "",
+}
 
 export const paginationSlice = createSlice({
   name: "pagination",
@@ -27,6 +32,9 @@ export const paginationSlice = createSlice({
     },
     updatePageInfo(state, action) {
       state.pageInfo = action.payload
+    },
+    updateSearchText(state, action) {
+      state.searchText = action.payload
     },
   },
 })
