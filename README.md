@@ -15,4 +15,4 @@
 1. Чтобы запустить проект в браузере: `npm run dev`
 2. Чтобы запустить тесты: `npm run test:headed`
 
-## [Ссылка на проект](./LICENSE.md).
+## [Ссылка на проект](https://toolkit-test.onrender.com)
