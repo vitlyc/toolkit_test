@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useLazyQuery } from "@apollo/client"
 import { SEARCH_REPOSITORY } from "../api/api"
+import BackButton from "../BackButton/BackButton"
 
 interface RepositoryData {
   repository: {
@@ -45,7 +46,6 @@ const RepositoryCard = () => {
   useEffect(() => {
     handleRequest()
   }, [])
-  console.log(data)
 
   return (
     <section>
@@ -65,6 +65,7 @@ const RepositoryCard = () => {
           <a href={data.repository.url}>URL</a>
         </>
       )}
+      <BackButton />
     </section>
   )
 }

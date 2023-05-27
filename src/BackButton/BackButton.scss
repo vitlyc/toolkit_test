@@ -1,0 +1,21 @@
+.button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.back-button {
+  background-color: rgb(80, 176, 183);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: rgb(54, 143, 149);
+}
+
+.back-button:focus {
+  outline: none;
+}

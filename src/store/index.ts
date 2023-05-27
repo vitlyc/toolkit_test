@@ -1,16 +1,31 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit"
+import { configureStore, getDefaultMiddleware, combineReducers } from "@reduxjs/toolkit"
 import { repositoriesSlice } from "./repositories"
 import { paginationSlice } from "./pagination"
+import { persistStore, persistReducer } from "redux-persist"
+import storage from "redux-persist/lib/storage"
 import logger from "redux-logger"
 
-const store = configureStore({
-  reducer: {
-    pagination: paginationSlice.reducer,
-    repositories: repositoriesSlice.reducer,
-  },
-  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+const persistConfig = {
+  key: "root",
+  version: 1,
+  storage,
+}
+const reducers = combineReducers({
+  repositories: repositoriesSlice.reducer,
+  pagination: paginationSlice.reducer,
 })
 
-export type RootState = ReturnType<typeof store.getState>
+const persistedReducer = persistReducer(persistConfig, reducers)
 
-export default store
+export const store = configureStore({
+  reducer: persistedReducer,
+  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActionPaths: ["register", "rehydrate"],
+      },
+    }),
+})
+export type RootState = ReturnType<typeof store.getState>
+export const persistor = persistStore(store)

@@ -24,8 +24,11 @@ const RepositorySearch = () => {
   const itemsPerPage = 10
 
   const handleSearch = async () => {
+    console.log("search")
+
     setCurrentPage(1)
     setFirst(itemsPerPage * currentPage)
+    dispatch(paginationActions.updateSearchText(searchTerm as string))
     handleRequest()
   }
   const handleClickSearch = async () => {
@@ -55,9 +58,7 @@ const RepositorySearch = () => {
   }, [currentPage])
 
   useEffect(() => {
-    return () => {
-      dispatch(paginationActions.updateSearchText(searchTerm))
-    }
+    return () => {}
   }, [])
 
   return (
@@ -65,7 +66,9 @@ const RepositorySearch = () => {
       <input
         type="text"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e) => {
+          setSearchTerm(e.target.value)
+        }}
       />
       <button onClick={() => handleSearch()}>Search</button>
 

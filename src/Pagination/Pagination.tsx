@@ -1,3 +1,4 @@
+import React from "react"
 import "./Pagination.scss"
 import { RootState } from "../store"
 import { paginationActions } from "../store/pagination"
