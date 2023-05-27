@@ -1,4 +1,3 @@
-import React from "react"
 import "./List.scss"
 import { useNavigate } from "react-router-dom"
 

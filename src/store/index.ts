@@ -1,9 +1,9 @@
-import { configureStore, getDefaultMiddleware, combineReducers } from "@reduxjs/toolkit"
+import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import { repositoriesSlice } from "./repositories"
 import { paginationSlice } from "./pagination"
 import { persistStore, persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage"
-import logger from "redux-logger"
+// import logger from "redux-logger"
 
 const persistConfig = {
   key: "root",

@@ -4,7 +4,7 @@
 
 ## Установка
 
-1. Склонируйте репозиторий: `https://github.com/vitlyc/toolkit_test.git`
+1. Склонируйте репозиторий: `git clone https://github.com/vitlyc/toolkit_test.git`
 2. Перейдите в директорию проекта: `cd toolkit_test`
 3. Установите зависимости: `npm install`
 

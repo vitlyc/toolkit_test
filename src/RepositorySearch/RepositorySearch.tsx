@@ -1,4 +1,3 @@
-import React from "react"
 import { RootState } from "../store/index"
 import { useState, useEffect } from "react"
 import { useLazyQuery } from "@apollo/client"
@@ -24,8 +23,6 @@ const RepositorySearch = () => {
   const itemsPerPage = 10
 
   const handleSearch = async () => {
-    console.log("search")
-
     setCurrentPage(1)
     setFirst(itemsPerPage * currentPage)
     dispatch(paginationActions.updateSearchText(searchTerm as string))

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useLazyQuery } from "@apollo/client"
 import { SEARCH_REPOSITORY } from "../api/api"

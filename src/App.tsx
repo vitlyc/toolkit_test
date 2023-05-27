@@ -1,5 +1,4 @@
-import React from "react"
-import { Route, Routes, BrowserRouter } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import RepositoryCard from "./RepositoryCard/RepositoryCard"
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client"
 import RepositorySearch from "./RepositorySearch/RepositorySearch"

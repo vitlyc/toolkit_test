@@ -1,8 +1,6 @@
-import React from "react"
 import "./Pagination.scss"
-import { RootState } from "../store"
 import { paginationActions } from "../store/pagination"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 
 type PaginationProps = {
   setCurrentPage: (page: number) => void
