@@ -8,52 +8,59 @@ test.use({
 })
 
 test("test", async ({ page }) => {
+  test.setTimeout(100000)
+
   await page.goto("http://localhost:5173/")
+  await page.waitForTimeout(4000)
+
   await page.getByRole("textbox").click()
   await page.getByRole("textbox").fill("typescript")
+  await page.waitForTimeout(4000)
 
-  await page.getByRole("button", { name: "Search" }).click()
-  await page.waitForTimeout(2000)
+  await page.getByRole("button", { name: "2" }).click()
+  await page.waitForTimeout(4000)
 
-  await page
-    .getByText("Name: typescriptStars: 539Last commit: 2023-05-27T14:06:34Z")
-    .click()
-  await page.waitForTimeout(2000)
+  await page.getByRole("button", { name: "3" }).click()
+  await page.waitForTimeout(4000)
 
-  await page.getByRole("button", { name: "Back" }).click()
-  await page.waitForTimeout(2000)
-
-  await page.getByText("Name: typescript-book").click()
-  await page.waitForTimeout(2000)
-
-  await page.getByRole("button", { name: "Back" }).click()
-  await page.waitForTimeout(2000)
-
-  await page
-    .getByText("Name: TypeScriptStars: 91527Last commit: 2023-05-27T15:02:08Z")
-    .click()
-  await page.waitForTimeout(2000)
-
-  await page.getByRole("button", { name: "Back" }).click()
-  await page.waitForTimeout(2000)
-
-  await page.getByRole("button", { name: "10" }).click()
-
-  await page.getByRole("button", { name: "9" }).click()
-  await page.waitForTimeout(2000)
-
-  await page.getByRole("button", { name: "8" }).click()
-  await page.waitForTimeout(2000)
-
-  await page.getByRole("button", { name: "6" }).click()
-  await page.waitForTimeout(2000)
+  await page.getByRole("button", { name: "5" }).click()
+  await page.waitForTimeout(4000)
 
   await page
     .getByText(
-      "Name: awesome-typescript-loaderStars: 2357Last commit: 2023-05-01T03:38:57Z"
+      "Name: node-typescript-boilerplateStars: 2068Last commit: 2023-05-27T10:40:49Z"
     )
     .click()
-  await page.waitForTimeout(2000)
+  await page.waitForTimeout(4000)
 
-  await page.getByRole("button", { name: "Back" }).click()
+  await page.getByRole("button", { name: "BACK" }).click()
+  await page.waitForTimeout(4000)
+
+  await page
+    .getByText(
+      "Name: json-schema-to-typescriptStars: 2450Last commit: 2023-05-27T08:40:37Z"
+    )
+    .click()
+  await page.waitForTimeout(4000)
+
+  await page.getByRole("button", { name: "BACK" }).click()
+  await page.waitForTimeout(4000)
+
+  await page.getByRole("textbox").click()
+  await page.waitForTimeout(4000)
+
+  await page.getByRole("textbox").fill("type")
+  await page.waitForTimeout(4000)
+
+  await page
+    .getByText("Name: typeormStars: 31325Last commit: 2023-05-28T03:13:34Z")
+    .click()
+  await page.waitForTimeout(4000)
+
+  await page.getByRole("button", { name: "BACK" }).click()
+  await page.waitForTimeout(4000)
+
+  await page.getByRole("textbox").click()
+  await page.getByRole("textbox").fill("")
+  await page.waitForTimeout(4000)
 })
