@@ -1,7 +1,8 @@
 import "./List.scss"
 import { useNavigate } from "react-router-dom"
+import { Repository } from "../api/api"
 
-const List = ({ repositories }: { repositories: any[] }) => {
+const List = ({ repositories }: { repositories: Repository[] }) => {
   const navigate = useNavigate()
 
   const handleClickRepository = (rep: any) => {

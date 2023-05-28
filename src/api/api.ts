@@ -34,8 +34,8 @@ export interface Repository {
 }
 
 export const SEARCH_REPOSITORIES = gql`
-  query SearchRepositories($searchTerm: String!, $first: Int, $after: String) {
-    search(query: $searchTerm, type: REPOSITORY, first: $first, after: $after) {
+  query SearchRepositories($searchText: String!, $first: Int, $after: String) {
+    search(query: $searchText, type: REPOSITORY, first: $first, after: $after) {
       repositoryCount
       pageInfo {
         endCursor
@@ -77,6 +77,22 @@ export const SEARCH_REPOSITORY = gql`
         }
       }
       description
+    }
+  }
+`
+export const SEARCH_USER = gql`
+  query {
+    viewer {
+      login
+      name
+      email
+      avatarUrl
+      repositories(first: 5) {
+        nodes {
+          name
+          description
+        }
+      }
     }
   }
 `
